@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html>
+	<head>
+    	<meta charset="UTF-8" />
+    	<title>book 객체 배열 만들기</title>
+    	<script>
+         	var bookArray = new Array();	// 입력받은 값을 저장할 배열
+        	for (var i = 0; i < 5; ++i) {
+            	var data = prompt("콤마(,)으로 분리하면서 책제목 저자 가격 순으로 입력"); //프롬프트로 입력받은 값
+            	var sup = data.split(","); //, 단위로 구분
+            	var book = {
+            		title : sup[0],
+            		author : sup[1],
+            		price : sup[2], // 가격을 정수로 변환
+            		max: function () { // 최대값을 구하는 function
+            		let max = -Infinity;
+                	    for (let i = 0; i < bookArray.length; i++) { // 책의 갯수만큼 반복
+                    	    if (max < bookArray[i].price) {
+                        	    max = bookArray[i].price;
+                            	var maxTitle = bookArray[i].title; // 가격이 가장 비싼 책의 제목을 저장
+                        	}
+                    	}
+                    	return maxTitle; // 제목을 리턴
+                	}
+            	}	
+            	bookArray[i] = book; // 입력값들을 배열에 저장
+        	}
+   		</script>
+	</head>
+
+	<body>
+    	<h3>book 객체 배열 만들기</h3>
+    	<hr>
+    	<script>
+        	for (var i = 0; i < bookArray.length; ++i) {
+            	document.write(bookArray[i].title + ", ");
+            	document.write(bookArray[i].author + ", ");
+            	document.write(bookArray[i].price + "<br>");
+        	}
+        	document.write("<hr>");
+        	document.write("가장 가격이 비싼 책은" + book.max());
+    	</script>
+	</body>
+
+</html>
